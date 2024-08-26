@@ -23,7 +23,7 @@ class EasyDateTimeLine extends StatefulWidget {
     this.funcao,
     this.itemBuilder,
     this.activeColor,
-    this.locale = "en_US",
+    this.locale = "pt_BR",
   });
 
   /// Represents the initial date for the timeline widget.

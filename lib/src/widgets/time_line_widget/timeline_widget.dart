@@ -16,7 +16,7 @@ class TimeLineWidget extends StatefulWidget {
     required this.activeDayColor,
     this.inactiveDates,
     this.dayProps = const EasyDayProps(),
-    this.locale = "en_US",
+    this.locale = "pt_BR",
     this.timeLineProps = const EasyTimeLineProps(),
     this.onDateChange,
     this.itemBuilder,

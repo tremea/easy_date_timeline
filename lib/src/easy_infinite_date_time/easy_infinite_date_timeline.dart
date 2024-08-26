@@ -44,7 +44,7 @@ class EasyInfiniteDateTimeLine extends StatefulWidget {
   ///   onDateChange: (DateTime selectedDate) {
   ///     // Handle selected date change
   ///   },
-  ///   locale: "en_US",
+  ///   locale: "pt_BR",
   ///   controller: EasyInfiniteDateTimelineController(),
   ///   showTimelineHeader: true,
   /// )

@@ -21,7 +21,7 @@ class EasyConstants {
   // Timeline list constants
   static const double separatorPadding = 8.0;
   static const double timelinePadding = 8.0;
-  static const String startLocale = "en_US";
+  static const String startLocale = "pt_BR";
 
   // Month dropdown constants
   static const double monthDropDownRadius = 12.0;

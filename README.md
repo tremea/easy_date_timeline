@@ -163,7 +163,7 @@ The `itemBuilder` provides the following:
                 ),
                 Flexible(
                   child: Text(
-                    EasyDateFormatter.shortDayName(date, "en_US"),
+                    EasyDateFormatter.shortDayName(date, "pt_BR"),
                     style: TextStyle(
                       color: isSelected ? Colors.white : null,
                     ),
@@ -451,7 +451,7 @@ The `itemBuilder` provides the following:
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  EasyDateFormatter.shortMonthName(date, "en_US"),
+                  EasyDateFormatter.shortMonthName(date, "pt_BR"),
                   style: TextStyle(
                     fontSize: 12,
                     color: isSelected ? Colors.white : const Color(0xff6D5D6E),
@@ -472,7 +472,7 @@ The `itemBuilder` provides the following:
                   width: 8.0,
                 ),
                 Text(
-                  EasyDateFormatter.shortDayName(date, "en_US"),
+                  EasyDateFormatter.shortDayName(date, "pt_BR"),
                   style: TextStyle(
                     fontSize: 12,
                     color: isSelected ? Colors.white : const Color(0xff6D5D6E),
@@ -499,7 +499,7 @@ The `itemBuilder` provides the following:
     this.onDateChange,
     this.itemBuilder,
     this.activeColor,
-    this.locale = "en_US",
+    this.locale = "pt_BR",
   });
 ```
 
@@ -512,7 +512,7 @@ The `itemBuilder` provides the following:
     this.onDateChange,
     this.itemBuilder,
     this.activeColor,
-    this.locale = "en_US",
+    this.locale = "pt_BR",
     required this.firstDate,
     required this.focusDate,
     required this.lastDate,
