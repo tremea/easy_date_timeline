@@ -9,7 +9,7 @@ class CustomBackgroundExample extends StatelessWidget {
     return EasyDateTimeLine(
     selectedDate: DateTime.now(),
             initialDate: DateTime.now(),
-      funcao: (){
+      onChangeMonthYear: (){
 
       },
       onDateChange: (selectedDate) {
