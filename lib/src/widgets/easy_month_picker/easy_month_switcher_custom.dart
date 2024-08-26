@@ -45,6 +45,9 @@ class EasyMonthSwitcherCustom extends StatefulWidget {
 class _EasyMonthSwitcherCustomState extends State<EasyMonthSwitcherCustom> {
   List<EasyMonth> _yearMonths = [];
   int _currentMonth = 0;
+
+  bool mesmoAno = true;
+
   @override
   void initState() {
     super.initState();
@@ -153,14 +156,14 @@ class _EasyMonthSwitcherCustomState extends State<EasyMonthSwitcherCustom> {
                       widget.onYearChange?.call(widget.selectedDate.year);
 
                     }
-                    print('Ano selecionado: ${widget.selectedDate.year}');
-                    print('inicial selecionado: ${widget.initialDate.year}');
+
+                    mesmoAno = true;
                   });
                 },
                 child: Container(
                   padding: EdgeInsets.all(6),
                   decoration: BoxDecoration(
-                    color: widget.initialDate.year == widget.selectedDate.year
+                    color: mesmoAno
                         ? Color(0xFF00bac9)
                         : Colors.white, // Cor do interior do contêiner
                     borderRadius:
@@ -174,8 +177,7 @@ class _EasyMonthSwitcherCustomState extends State<EasyMonthSwitcherCustom> {
                       widget.initialDate.year.toString(),
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          color: widget.initialDate.year ==
-                                  widget.selectedDate.year
+                          color: mesmoAno
                               ? Colors.white // Color(0xFF00bac9)
                               : Color(0xFF9CA4AB)),
                     ),
@@ -195,18 +197,21 @@ class _EasyMonthSwitcherCustomState extends State<EasyMonthSwitcherCustom> {
                     );
                     if (widget.onYearChange != null) {
 
-                      widget.onYearChange?.call(widget.selectedDate.year);
+                      widget.onYearChange?.call(widget.selectedDate.year );
                     }
+
+                 mesmoAno = false;
+
                   });
-                  print('Ano selecionado: ${widget.selectedDate.year}');
-                  print('DATA selecionado: ${widget.selectedDate}');
+
+
 
                 },
                 child: Container(
                   padding: EdgeInsets.all(6),
                   decoration: BoxDecoration(
                     color:
-                        widget.selectedDate.year == widget.initialDate.year + 1
+                       !mesmoAno
                             ? Color(0xFF00bac9)
                             : Colors.white, // Cor do interior do contêiner
                     borderRadius:
@@ -220,10 +225,11 @@ class _EasyMonthSwitcherCustomState extends State<EasyMonthSwitcherCustom> {
                       '${widget.initialDate.year + 1}',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          color: widget.initialDate.year ==
-                                  widget.selectedDate.year
-                              ? Color(0xFF00bac9)
-                              : Colors.white),
+                          color: !mesmoAno
+                              ? Colors.white :
+                          Color(0xFF9CA4AB)
+
+                      ),
                     ),
                   ),
                 ),

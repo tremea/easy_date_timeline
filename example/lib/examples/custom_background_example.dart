@@ -10,7 +10,7 @@ class CustomBackgroundExample extends StatelessWidget {
     selectedDate: DateTime.now(),
             initialDate: DateTime.now(),
       funcao: (){
-        print('testeeeee!');
+
       },
       onDateChange: (selectedDate) {
         //`selectedDate` the new date selected.
