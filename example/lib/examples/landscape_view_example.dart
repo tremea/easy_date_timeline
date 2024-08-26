@@ -8,6 +8,7 @@ class LandscapeViewExample extends StatelessWidget {
   Widget build(BuildContext context) {
     return EasyDateTimeLine(
       initialDate: DateTime.now(),
+      selectedDate: DateTime.now(),
       onDateChange: (selectedDate) {
         //`selectedDate` the new date selected.
       },

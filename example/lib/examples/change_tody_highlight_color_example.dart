@@ -6,7 +6,9 @@ class ChangeTodyHighlightColorExample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return EasyDateTimeLine(
+    return EasyDateTimeLine
+      (
+      selectedDate: DateTime.now(),
       initialDate: DateTime.now(),
       onDateChange: (selectedDate) {
         //`selectedDate` the new date selected.

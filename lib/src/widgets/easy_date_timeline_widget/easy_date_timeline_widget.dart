@@ -11,9 +11,10 @@ import 'selected_date_widget.dart';
 
 /// Represents a timeline widget for displaying dates in a horizontal line.
 class EasyDateTimeLine extends StatefulWidget {
-  const EasyDateTimeLine({
+   EasyDateTimeLine({
     super.key,
     required this.initialDate,
+    required this.selectedDate,
     this.disabledDates,
     this.headerProps = const EasyHeaderProps(),
     this.timeLineProps = const EasyTimeLineProps(),
@@ -28,6 +29,7 @@ class EasyDateTimeLine extends StatefulWidget {
   /// Represents the initial date for the timeline widget.
   /// This is the date that will be displayed as the first day in the timeline.
   final DateTime initialDate;
+   DateTime selectedDate;
 
   /// Represents a list of inactive dates for the timeline widget.
   /// Note that all the dates defined in the `disabledDates` list will be deactivated.
@@ -75,11 +77,13 @@ class EasyDateTimeLine extends StatefulWidget {
 
 class _EasyDateTimeLineState extends State<EasyDateTimeLine> {
   late EasyMonth _easyMonth;
+  late int _easyYear;
   late int _initialDay;
 
   late ValueNotifier<DateTime?> _focusedDateListener;
 
   DateTime get initialDate => widget.initialDate;
+  DateTime get selectedDate => widget.selectedDate;
   @override
   void initState() {
     // Init easy date timeline locale
@@ -88,6 +92,9 @@ class _EasyDateTimeLineState extends State<EasyDateTimeLine> {
     // Get initial month
     _easyMonth =
         EasyDateUtils.convertDateToEasyMonth(widget.initialDate, widget.locale);
+    _easyYear = widget.initialDate.year;
+
+
     _initialDay = widget.initialDate.day;
     _focusedDateListener = ValueNotifier(initialDate);
   }
@@ -132,6 +139,25 @@ class _EasyDateTimeLineState extends State<EasyDateTimeLine> {
         mainAxisSize: MainAxisSize.min,
         children: [
 
+
+
+          if (_showMonthPicker(pickerType: MonthPickerType.custom))
+            EasyMonthSwitcherCustom(
+              locale: widget.locale,
+              value: _easyMonth,
+              year: _easyYear,
+              initialDate: initialDate,
+              selectedDate: selectedDate,
+              onMonthChange: _onMonthChange,
+              onYearChange: _onYearChange,
+              funcao: widget.funcao ?? (){
+
+              },
+
+              style: _headerProps.monthStyle,
+            ),
+          if (!_showMonthPicker(pickerType: MonthPickerType.custom))
+
           if (_headerProps.showHeader)
             Padding(
               padding: _headerProps.padding ??
@@ -145,6 +171,7 @@ class _EasyDateTimeLineState extends State<EasyDateTimeLine> {
                     ? MainAxisAlignment.center
                     : MainAxisAlignment.spaceBetween,
                 children: [
+                  if (!_showMonthPicker(pickerType: MonthPickerType.custom))
                   SelectedDateWidget(
                     date: focusedDate ?? initialDate,
                     locale: widget.locale,
@@ -160,17 +187,6 @@ class _EasyDateTimeLineState extends State<EasyDateTimeLine> {
                       style: _headerProps.monthStyle,
                     ),
 
-                  if (_showMonthPicker(pickerType: MonthPickerType.custom))
-                    EasyMonthSwitcherCustom(
-                      locale: widget.locale,
-                      value: _easyMonth,
-                      onMonthChange: _onMonthChange,
-                      funcao: widget.funcao ?? (){
-
-                      },
-
-                      style: _headerProps.monthStyle,
-                    ),
                 ],
               ),
             ),
@@ -180,6 +196,7 @@ class _EasyDateTimeLineState extends State<EasyDateTimeLine> {
 
           TimeLineWidget(
             initialDate: initialDate.copyWith(
+              year: _easyYear,
               month: _easyMonth.vale,
               day: _initialDay,
             ),
@@ -208,6 +225,14 @@ class _EasyDateTimeLineState extends State<EasyDateTimeLine> {
     setState(() {
       _initialDay = 1;
       _easyMonth = month!;
+    });
+  }
+
+  void _onYearChange( year ) {
+    setState(() {
+      _initialDay = 1;
+      _easyYear = year;
+
     });
   }
 

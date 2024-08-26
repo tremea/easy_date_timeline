@@ -7,7 +7,8 @@ class CustomBackgroundExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return EasyDateTimeLine(
-      initialDate: DateTime.now(),
+    selectedDate: DateTime.now(),
+            initialDate: DateTime.now(),
       funcao: (){
         print('testeeeee!');
       },

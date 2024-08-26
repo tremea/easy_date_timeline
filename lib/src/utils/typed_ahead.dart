@@ -30,6 +30,8 @@ typedef ItemBuilderCallBack = Widget Function(
 /// Used by `EasyDateTimeLine` for detecting changes in the selected month.
 typedef OnMonthChangeCallBack = void Function(EasyMonth? month);
 
+typedef OnYearChangeCallBack = void Function(int? year);
+
 /// A typedef representing a callback function that builds a header widget.
 ///
 /// The [HeaderBuilderCallBack] takes a [BuildContext] and a [DateTime] as parameters

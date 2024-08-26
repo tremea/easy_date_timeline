@@ -17,6 +17,11 @@ abstract final class EasyDateFormatter {
     return DateFormat("MMM", locale).format(date);
   }
 
+  /// Returns the short name of the year of the given date in the specified locale.
+  static String shortYearName(DateTime date, String locale) {
+    return DateFormat("yyyy", locale).format(date);
+  }
+
   /// Returns a custom formatted string representing the given date in the specified locale.
   static String customFormat(String format, DateTime date, String locale) {
     return DateFormat(format, locale).format(date);

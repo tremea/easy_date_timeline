@@ -39,6 +39,15 @@ abstract class EasyDateUtils {
     );
   }
 
+  /// Converts the given date to an `EasyMonth` object in the specified locale.
+  static EasyMonth convertDateToEasyYear(DateTime date, String locale) {
+    return EasyMonth(
+      name: EasyDateFormatter.shortMonthName(
+          DateTime(date.year, date.month), locale),
+      vale: date.month,
+    );
+  }
+
   /// function that takes a DateTime object as input and returns a boolean value
   /// indicating whether it is the current date or not.
   static bool isToday(DateTime date) {
