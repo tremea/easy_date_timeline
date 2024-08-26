@@ -150,7 +150,7 @@ class _EasyDateTimeLineState extends State<EasyDateTimeLine> {
               selectedDate: selectedDate,
               onMonthChange: _onMonthChange,
               onYearChange: _onYearChange,
-              funcao: widget.funcao ?? (){
+              onChangeMonthYear: widget.funcao ?? (){
 
               },
 

@@ -14,7 +14,7 @@ class EasyMonthSwitcherCustom extends StatefulWidget {
     required this.selectedDate,
     this.onMonthChange,
     this.onYearChange,
-    this.funcao,
+    this.onChangeMonthYear,
     this.style,
   });
 
@@ -32,7 +32,7 @@ class EasyMonthSwitcherCustom extends StatefulWidget {
   final OnYearChangeCallBack? onYearChange;
 
 
-  final VoidCallback? funcao;
+  final VoidCallback? onChangeMonthYear;
 
   /// The text style applied to the month string.
   final TextStyle? style;
@@ -76,8 +76,8 @@ class _EasyMonthSwitcherCustomState extends State<EasyMonthSwitcherCustom> {
                     }
                     _currentMonth--;
                     widget.onMonthChange?.call(_yearMonths[_currentMonth]);
-                    if (widget.funcao != null) {
-                      widget.funcao!();
+                    if (widget.onChangeMonthYear != null) {
+                      widget.onChangeMonthYear!();
                     }
                   },
                   child: Container(
@@ -117,8 +117,8 @@ class _EasyMonthSwitcherCustomState extends State<EasyMonthSwitcherCustom> {
                     }
                     _currentMonth++;
                     widget.onMonthChange?.call(_yearMonths[_currentMonth]);
-                    if (widget.funcao != null) {
-                      widget.funcao!();
+                    if (widget.onChangeMonthYear != null) {
+                      widget.onChangeMonthYear!();
                     }
                   },
                   child: Container(
@@ -159,6 +159,10 @@ class _EasyMonthSwitcherCustomState extends State<EasyMonthSwitcherCustom> {
 
                     mesmoAno = true;
                   });
+
+                  if (widget.onChangeMonthYear != null) {
+                    widget.onChangeMonthYear!();
+                  }
                 },
                 child: Container(
                   padding: EdgeInsets.all(6),
@@ -203,7 +207,9 @@ class _EasyMonthSwitcherCustomState extends State<EasyMonthSwitcherCustom> {
                  mesmoAno = false;
 
                   });
-
+                  if (widget.onChangeMonthYear != null) {
+                    widget.onChangeMonthYear!();
+                  }
 
 
                 },
