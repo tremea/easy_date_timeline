@@ -10,6 +10,7 @@ class EasyMonthSwitcherCustom extends StatefulWidget {
     required this.locale,
     required this.value,
     this.onMonthChange,
+    this.funcao,
     this.style,
   });
 
@@ -21,6 +22,8 @@ class EasyMonthSwitcherCustom extends StatefulWidget {
 
   /// A callback function that is called when the selected month changes.
   final OnMonthChangeCallBack? onMonthChange;
+
+  final VoidCallback? funcao;
 
   /// The text style applied to the month string.
   final TextStyle? style;
@@ -58,6 +61,9 @@ class _EasyMonthSwitcherCustomState extends State<EasyMonthSwitcherCustom> {
               }
               _currentMonth--;
               widget.onMonthChange?.call(_yearMonths[_currentMonth]);
+              if(widget.funcao != null) {
+                widget.funcao!();
+              }
             },
             child: Container(
               margin: const EdgeInsets.only(right: 6),
@@ -98,6 +104,9 @@ class _EasyMonthSwitcherCustomState extends State<EasyMonthSwitcherCustom> {
               }
               _currentMonth++;
               widget.onMonthChange?.call(_yearMonths[_currentMonth]);
+              if(widget.funcao != null) {
+                widget.funcao!();
+              }
             },
             child: Container(
               margin: const EdgeInsets.only(left: 6),

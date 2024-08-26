@@ -8,8 +8,12 @@ class CustomBackgroundExample extends StatelessWidget {
   Widget build(BuildContext context) {
     return EasyDateTimeLine(
       initialDate: DateTime.now(),
+      funcao: (){
+        print('testeeeee!');
+      },
       onDateChange: (selectedDate) {
         //`selectedDate` the new date selected.
+
       },
       headerProps: const EasyHeaderProps(
         monthPickerType: MonthPickerType.custom,
