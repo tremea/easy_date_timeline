@@ -79,4 +79,5 @@ enum SelectedDateFormat {
 enum MonthPickerType {
   dropDown,
   switcher,
+  custom,
 }

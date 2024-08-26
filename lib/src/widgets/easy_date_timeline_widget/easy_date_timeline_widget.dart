@@ -5,6 +5,7 @@ import '../../models/models.dart';
 import '../../properties/properties.dart';
 import '../../utils/utils.dart';
 import '../easy_month_picker/easy_month_picker.dart';
+import '../easy_month_picker/easy_month_switcher_custom.dart';
 import '../time_line_widget/timeline_widget.dart';
 import 'selected_date_widget.dart';
 
@@ -128,6 +129,7 @@ class _EasyDateTimeLineState extends State<EasyDateTimeLine> {
       builder: (context, focusedDate, child) => Column(
         mainAxisSize: MainAxisSize.min,
         children: [
+
           if (_headerProps.showHeader)
             Padding(
               padding: _headerProps.padding ??
@@ -155,9 +157,21 @@ class _EasyDateTimeLineState extends State<EasyDateTimeLine> {
                       onMonthChange: _onMonthChange,
                       style: _headerProps.monthStyle,
                     ),
+
+                  if (_showMonthPicker(pickerType: MonthPickerType.custom))
+                    EasyMonthSwitcherCustom(
+                      locale: widget.locale,
+                      value: _easyMonth,
+                      onMonthChange: _onMonthChange,
+                      style: _headerProps.monthStyle,
+                    ),
                 ],
               ),
             ),
+
+
+
+
           TimeLineWidget(
             initialDate: initialDate.copyWith(
               month: _easyMonth.vale,

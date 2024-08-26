@@ -57,7 +57,7 @@ class EasyInfiniteDateTimeLine extends StatefulWidget {
     this.onDateChange,
     this.itemBuilder,
     this.activeColor,
-    this.locale = "en_US",
+    this.locale = "pt_BR",
     this.controller,
     this.showTimelineHeader = true,
     this.headerBuilder,

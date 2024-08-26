@@ -12,7 +12,7 @@ class CustomBackgroundExample extends StatelessWidget {
         //`selectedDate` the new date selected.
       },
       headerProps: const EasyHeaderProps(
-        monthPickerType: MonthPickerType.switcher,
+        monthPickerType: MonthPickerType.custom,
         dateFormatter: DateFormatter.fullDateDMY(),
       ),
       dayProps: const EasyDayProps(
